@@ -150,7 +150,7 @@ While the parameters `n_threads` of 8 and `n_batch` of 1024 delivered the highes
 
 ### 4. GPU+CPU Locally vs CPU Cloud Run
 
-Lastly, we evaluated the chatbot's performance using the final configuration on both local GPU+CPU setups and CPU-based Google Cloud Run. This test aims to compare the chatbot's response time in different environments using the optimal settings previously identified.
+Lastly, we evaluated the chatbot's performance using the final configuration on both local GPU+CPU setups and CPU-based Google Cloud Run. The aim of this test was to compare the chatbot's response times in different environments under the optimal settings previously identified.
 
 #### Final Configuration
 ```
@@ -158,15 +158,15 @@ Lastly, we evaluated the chatbot's performance using the final configuration on 
         model_path=LLM_PATH,
         # n_gpu_layers=20, # Disable when using CPU version
         temperature=1,
-        max_tokens=512, #output
+        max_tokens=512,
         n_ctx=2048,
         n_batch=1024,
         n_threads=8, # Disable when using GPU version
-        n_threads_batch=8,
+        n_threads_batch=8, # Disable when using GPU version
         repeat_penalty=1.2,
-        presence_penalty =0.2,
-        callback_manager = callback_manager,
-        verbose = True # Change to False when deploying
+        presence_penalty=0.2,
+        callback_manager=callback_manager,
+        verbose=True
     )
 ```
 
@@ -175,7 +175,7 @@ Lastly, we evaluated the chatbot's performance using the final configuration on 
 | GPU+CPU       | 1695 tokens per sec|
 | CPU Cloud Run | 643 tokens per sec |
 
-The GPU+CPU configuration outperformed the CPU-based Cloud Run setup in terms of the chatbot performance. Although the chatbot's performance on CPU-based Cloud Run was lower, there is significant potential for enhancement. Allocating more vCPUs could help bridge the performance gap. Additionally, internet latency is another probable factor contributing to slower performance, as it can delay data transmission between the client and the server, affecting response times and overall throughput. Moreover, there could be other configurations optimized for CPU usage that have not yet been identified or tested in this study, which could further refine and enhance performance. Addressing these factors could not only improve the chatbot's performance on Cloud Run but potentially match or even surpass the local GPU+CPU setup.
+The GPU+CPU configuration outperformed the CPU-only setup on Google Cloud Run in terms of chatbot performance. While the performance on the CPU-based Cloud Run was lower, significant potential for enhancement exists. Allocating more vCPUs could help bridge the performance gap. Additionally, internet latency is another probable factor contributing to slower performance, as it can delay data transmission between the client and the server, affecting response times and overall throughput. Furthermore, other configurations optimized for CPU usage that have not yet been explored in this study could potentially refine and enhance performance further. Addressing these factors could improve the chatbot's performance on Cloud Run, potentially matching or even surpassing the local GPU+CPU setup.
 
 
 #### Screenshot of a conversation with the chatbot
