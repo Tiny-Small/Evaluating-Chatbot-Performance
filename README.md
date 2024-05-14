@@ -181,6 +181,8 @@ The GPU+CPU configuration outperformed the CPU-based Cloud Run setup in terms of
 
 
 **Screenshot of a conversation with the chatbot**
+![Screenshot 2024-05-14 172918](https://github.com/Tiny-Small/Evaluating-Chatbot-Performance/assets/149786226/d027ba68-0f04-42db-995b-3e8e2f51701c)
+
 
 
 ## Future Studies
