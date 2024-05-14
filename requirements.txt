@@ -1,0 +1,7 @@
+pypdf
+langchain
+sentence-transformers
+python-dotenv
+streamlit
+faiss-gpu
+torch
